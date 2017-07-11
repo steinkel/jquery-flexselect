@@ -45,7 +45,7 @@ end
 desc "Rewrite the downlaod location in the docs"
 task :rewrite_docs => :version do
   docs = IO.read("index.html")
-  docs.sub!(/(download_url = .+)-\d+\.\d+\.\d+.zip/, "\\1-#{package.version}.zip")
+  docs.sub!(/download_url =.*/, "download_url = \"https://github.com/rmm5t/jquery-flexselect/releases/download/v#{package.version}/jquery.flexselect-#{package.version}.zip\";")
   File.open("index.html", "w") { |f| f.write docs }
 end
 
