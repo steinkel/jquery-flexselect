@@ -38,7 +38,7 @@ end
 desc "Construct a new release package, and optionally tag the repository"
 task :release => [:rewrite_docs, :rewrite_bower, :commit, :repackage] do
   sh("git tag -s 'v#{package.version}' -m 'Version #{package.version}'")
-  puts("\n *** Don't forget to push the zip file to S3 ***")
+  puts("\n *** Don't forget to push the zip file to a GitHub Release ***")
   puts("\n *** Don't forget to `rake publish` ***")
 end
 
